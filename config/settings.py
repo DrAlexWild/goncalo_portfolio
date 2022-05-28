@@ -147,7 +147,10 @@ STATICFILES_DIRS = [str(BASE_DIR.joinpath('portfolio/static'))]
 STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',     # finds files stored in the `STATICFILES_DIRS` setting.
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder', # finds files stored in the 'static' subdirectory of each app.
+]
 
 
 
