@@ -1,0 +1,17 @@
+{% extends 'portfolio/layout.html' %}
+
+
+{% block main %}
+<h3>Nova Tecnologia</h3>
+<section>
+<form method ="POST" action="{% url 'portfolio:editartec'  tecnologia_id %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <a href="{% url 'portfolio:Web' %}" role="button">Cancelar</a>
+    <div class="gravar">
+        <input type="submit" value="Gravar">
+    </div>
+    <a href="{% url 'portfolio:apagartec' tecnologia_id %}" role="button">Apagar</a>
+</form>
+</section>
+{% endblock %}

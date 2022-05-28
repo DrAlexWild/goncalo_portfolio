@@ -1,10 +1,12 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 
 from .models import Blog, Apti, Formacao, Cadeira, Projeto, Tecnologia, Noticia, Laboratorio, Quizz, PadroesUsados, \
     TecnologiaUsada
-from .forms import BlogForm, QuizzForm
+from .forms import BlogForm, QuizzForm, TecnologiaForm
 from .forms import AptiForm
 from .forms import FormacaoForm
 
@@ -99,4 +101,62 @@ def visualizacao_web(request):
         'form': form,
     }
     return render(request, 'portfolio/Web.html', context)
+
+def view_login(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+
+        user = authenticate(
+            request,
+            username=username,
+            password=password)
+
+        if user is not None:
+            login(request, user)
+            return HttpResponseRedirect(reverse('portfolio:home'))
+        else:
+            return render(request, 'portfolio/login.html', {
+                'message': 'Credenciais invalidas.'
+            })
+
+    return render(request, 'portfolio/login.html')
+
+def view_logout(request):
+    logout(request)
+    return render(request, 'portfolio/login.html', {
+        'message': 'Foi desconetado.'
+    })
+
+def nova_tecnologia_view(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('portfolio:login'))
+
+    if request.method == 'POST':
+        form = TecnologiaForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('portfolio:Web'))
+    form = TecnologiaForm()
+    context = {'form': form}
+    return render(request, 'portfolio/novatec.html', context)
+
+
+@login_required
+def edita_tecnologia_view(request, tecnologia_id):
+    post = Tecnologia.objects.get(id=tecnologia_id)
+    if request.method == 'POST':
+        form = TecnologiaForm(request.POST, request.FILES, instance=post)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('portfolio:Web'))
+    else:
+        form = TecnologiaForm(instance=post)
+    context = {'form': form, 'post_id': tecnologia_id}
+    return render(request, 'portfolio/editartec.html', context)
+
+@login_required
+def apaga_tecnologia_view(request, tecnologia_id):
+    Tecnologia.objects.get(pk=tecnologia_id).delete()
+    return HttpResponseRedirect(reverse('portfolio:Web'))
 

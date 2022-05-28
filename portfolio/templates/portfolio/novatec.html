@@ -1,0 +1,15 @@
+{% extends 'portfolio/layout.html' %}
+
+
+{% block main %}
+<section>
+<h3>Nova Tecnologia</h3>
+<form method ="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div class="gravar">
+        <input type="submit" value="Gravar">
+    </div>
+</form>
+</section>
+{% endblock %}

@@ -33,9 +33,18 @@
             {% for criador in Tecnologia.criador.all %}<p>Criador : {{ criador }}</p>{% endfor %}
             <br>
             <a href="{{ Tecnologia.link_site_oficial}}">Link do Site Oficial</a>
+            <br>
+            {% if request.user.is_authenticated %}
+            <a href="{% url 'portfolio:editar' Blog.id %}" class="botao">Editar</a>
+            <a href="{% url 'portfolio:apagar' Blog.id %}" class="botao">Apagar</a>
+            {% endif %}
         </div>
     </div>
 {% endfor %}
+    </div>
+    <div class="outro">
+        <a href="{% url 'portfolio:nova' %}" class="botao">+ Faz o teu Post</a>
+    </div>
 </div>
 
 <h1 class="base1">Notícias artigos</h1>
@@ -93,5 +102,8 @@
     </div>
     </form>
 </div>
+
+<a href="{% url 'portfolio:login' %}" class="btn btn-info">Login</a>
+<a href="{% url 'portfolio:logout' %}" class="btn btn-danger">Logout</a>
 
 {% endblock %}
