@@ -152,5 +152,7 @@ STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.AppDirectoriesFinder', # finds files stored in the 'static' subdirectory of each app.
 ]
 
+#
+
 
 
