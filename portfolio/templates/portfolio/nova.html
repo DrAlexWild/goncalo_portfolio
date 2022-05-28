@@ -1,0 +1,19 @@
+{% extends 'portfolio/layout.html' %}
+
+
+{% block main %}
+<div class="text-center">
+    <h1>Posts</h1>
+    <p class="italico">Faz e partilha também o teu feedback acerca de mim enquanto colega de grupo</p>
+</div>
+<section>
+<h3>Novo Post</h3>
+<form method ="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div class="gravar">
+        <input type="submit" value="Gravar">
+    </div>
+</form>
+</section>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'portfolio/layout.html' %}
+
+
+{% block main %}
+{% load static %}
+<div class="article4"></div>
+<h1 class="base1">Projetos Realizados</h1>
+
+{% for Projeto in Projetos %}
+<div class="containerP">
+<div>
+    <h2>{{ Projeto.titulo}}</h2>
+    <ul>
+        <br>
+        <li>Descrição : {{ Projeto.descricao}}</li>
+        <li>Ano : {{ Projeto.ano}}</li>
+        {% for tecnologia in Projeto.tecnologias.all %}<li>Tecnologias utilizadas : {{ tecnologia}} </li>{% endfor %}
+        {% for competencia in Projeto.competencias.all %}<li>Competências desenvolvidas : {{ competencia}}</li>{% endfor %}
+        {% for participante in Projeto.paticipantes.all %}<li>Alunos participantes : {{ participante }}</li>{% endfor %}
+        <li><a href="{{Projeto.linkCadeira}}">Link da Cadeira</a></li>
+        <li><a href="{{Projeto.linkGithub}}">Link do Github </a></li>
+        <li><a href="{{Projeto.linkYoutube}}">Link do Youtube</a></li>
+</ul>
+</div>
+</div>
+{% endfor %}
+
+<h1 class="base1">Trabalhos Finais de Curso</h1>
+
+<p>imrpimir aqui 6 Trabalhos finais de Curso</p>
+
+
+{% endblock %}

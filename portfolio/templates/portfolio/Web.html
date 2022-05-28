@@ -1,0 +1,97 @@
+{% extends 'portfolio/layout.html' %}
+
+
+{% block main %}
+{% load static %}
+<div class="article8"></div>
+<h1 class="base1">Laboratórios da Cadeira</h1>
+
+<div class="labs">
+    {% for Laboratorio in Laboratorios %}
+        <div>
+            <div><img class="img" src="{{Laboratorio.imagem.url}}" alt="retrato"></div>
+            <div><h3>{{Laboratorio.titulo}}</h3><br><a href="{{ Laboratorio.link}}">{{Laboratorio.descricao}} , clique para ver !</a></div>
+        </div>
+    {% endfor %}
+</div>
+
+
+<h1 class="base1">Tecnologias existentes</h1>
+
+<div class="space">
+{% for Tecnologia in Tecnologias %}
+    <div class="Tec">
+        <div>
+        <h2>{{ Tecnologia.nome}} / {{ Tecnologia.acronimo}}</h2>
+            <br>
+            <img class="img" src="{{Tecnologia.logotipo.url}}" alt="retrato">
+            <p>Tipo : {{ Tecnologia.tipo}}</p>
+            <br>
+            <p>{{ Tecnologia.descricao_caracteristicas}}</p>
+            <br>
+            <p>Ano : {{ Tecnologia.ano_criacao}}</p>
+            {% for criador in Tecnologia.criador.all %}<p>Criador : {{ criador }}</p>{% endfor %}
+            <br>
+            <a href="{{ Tecnologia.link_site_oficial}}">Link do Site Oficial</a>
+        </div>
+    </div>
+{% endfor %}
+</div>
+
+<h1 class="base1">Notícias artigos</h1>
+<div class="article9"></div>
+
+<div class="space">
+{% for Noticia in Noticias %}
+    <div class="Noc">
+        <div>
+        <h2>{{ Noticia.titulo}}</h2>
+            <br>
+        <p>{{ Noticia.texto}}</p>
+            <img class="img" src="{{Noticia.imagem.url}}" alt="retrato">
+            <a href="{{ Noticia.link}}">Link da Notícia</a>
+        </div>
+    </div>
+{% endfor %}
+</div>
+
+<h1 class="base2">Mapa do Site</h1>
+<div class="dm">
+<img src="{% static 'portfolio/images/Mapa.png' %}">
+</div>
+
+<h1 class="base2">Diagrama DER</h1>
+<div class="der">
+    <img src="{% static 'portfolio/images/Der4.png' %}">
+</div>
+
+<h1 class="base2">Tecnologias Utilizadas</h1>
+<section>
+    {% for TecnologiaUsada in TecnologiaUsadas %}
+         {% for tecnologiausada in TecnologiaUsada.usadas.all %}<p>Técnologia : {{ tecnologiausada}}</p>{% endfor %}
+    {% endfor %}
+</section>
+
+<h1 class="base2">Padrões Usados</h1>
+<section>
+{% for PadroesUsados in PadroesUsadoss %}
+    <p>{{PadroesUsados.nome}}</p>
+{% endfor %}
+</section>
+
+<h1 class="base1">Quiz</h1>
+
+<div class="quizz">
+    {% load static %}
+    <img class="img" src="/static/portfolio/images/grafico.png" alt="retrato">
+    <h2>{{nome_vencedores}}</h2>
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+    <div class="gravar">
+        <input type="submit" value="Gravar">
+    </div>
+    </form>
+</div>
+
+{% endblock %}

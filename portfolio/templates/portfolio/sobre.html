@@ -1,0 +1,72 @@
+{% extends 'portfolio/layout.html' %}
+
+
+{% block main %}
+{% load static %}
+<div class="article5"></div>
+<div class="textoM1">
+        <h2>QUEM SOU EU - INTERESSES E HOBBIES</h2>
+        <br>
+        <p>O meu nome é Gonçalo Pedroso, tenho 19 anos e de momento sou estudante na Licenciatura em Engenharia Informática, fora disso tenho vários interesses como o mundo do desporto, carros e claro as tecnologias.<br><br> No meu tempo livre tenho como hobbies preferidos jogar/ver futebol,aventurar-me em tudo o que involve um pouco de adrenalina, ir ao ginásio e conviver com amigos, namorada e familia. </p>
+    </div>
+<div class="article6"></div>
+
+<h1 class="base">Aptidões e Competências Pessoais</h1>
+<section>
+{% for Apti in Aptis %}
+        <p>{{ Apti.titulo}} - {{ Apti.descricao}}<BR>Projeto/Disciplina : {{ Apti.projetos}}/{{ Apti.disciplinas}}</p>
+{% endfor %}
+</section>
+<h1 class="base">Educação</h1>
+<div class="article3"></div>
+<h1 class="base">Formação / Certificados</h1>
+
+
+{% for Formacao in Formacaos %}
+<div class="eu">
+        <div>
+            <img class="img" src="{{Formacao.logotipo.url}}" alt="retrato">
+            <div>
+                <ul>
+                <li>Ensino : {{ Formacao.ensino}}</li>
+                <li>Curso : {{ Formacao.curso}}</li>
+                <li>Local : {{ Formacao.local}}</li>
+                <li>Período : {{ Formacao.periodo}} Anos</li>
+               </ul>
+            </div>
+            </div>
+        </div>
+{% endfor %}
+
+<h1 class="base">Cadeiras do curso</h1>
+
+<div class="space">
+{% for Cadeira in Cadeiras %}
+    <div class="Cad">
+        <div>
+        <h2>{{ Cadeira.nome}}</h2>
+            <br>
+            <img class="img" src="{{Cadeira.imagem.url}}" alt="retrato">
+            <p>Ano letivo : {{ Cadeira.ano}}</p>
+            <p>Semestre : {{ Cadeira.semestre}}</p>
+            <p>ECTS : {{ Cadeira.ects}}</p>
+            {% for curso in Cadeira.curso.all %}<p>Curso : {{curso}}</p>{% endfor %}
+            <br>
+            <p>Tópicos abordados : {{ Cadeira.descricao}} </p>
+            <br>
+            <p>Professor Teórica : {{ Cadeira.docente_teorica}}</p>
+            {% for professor in Cadeira.docentes_praticas.all %}<p>Professores Práticas : {{ professor}}</p>{% endfor %}
+            {% for projeto in Cadeira.projetos.all %}<p>Projetos : {{ projeto}}</p>{% endfor %}
+            {% for cadeira in Cadeira.linguagens.all %}<p>Linguagens : {{ cadeira}}</p>{% endfor %}
+            <br>
+            <p>Ranking(0/5) : {{ Cadeira.ranking}} </p>
+        </div>
+    </div>
+{% endfor %}
+</div>
+
+
+
+{% endblock %}
+    
+

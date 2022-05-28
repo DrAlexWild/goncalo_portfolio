@@ -1,0 +1,41 @@
+{% extends 'portfolio/layout.html' %}
+
+
+{% block main %}
+{% load static %}
+<div class="container4">
+  <form action="/action_page.php">
+    <div class="row">
+      <h2 class="contacto">Entre em contacto comigo</h2>
+      <div class="vl">
+        <span class="vl-innertext">ou</span>
+      </div>
+
+      <div class="col">
+        <a href="https://www.facebook.com/" class="fb btn">
+          <i class="fa fa-facebook fa-fw"></i>O meu Facebook
+         </a>
+        <a href="https://www.instagram.com/" class="instagram btn">
+          <i class="fa fa-instagram fa-fw"></i> O meu Instagram
+        </a>
+        <a href="https://www.linkedin.com/feed/" class="linkedin btn"><i class="fa fa-google fa-fw">
+          </i> O meu Linkedin
+        </a>
+      </div>
+
+      <div class="col">
+        <div class="hide-md-lg">
+          <p>Ou</p>
+        </div>
+        <a href="#" class="github btn"><i class="fa fa-github fa-fw">
+          </i> O meu Github
+        </a>
+        <br><br>
+        <p>Para qualquer tipo de reunião presencialmente encontro-me a morar na cidade de Lisboa, concelho de Cascais.</p>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="article7"></div>
+
+{% endblock %}
