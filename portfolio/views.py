@@ -114,7 +114,7 @@ def view_login(request):
 
         if user is not None:
             login(request, user)
-            return HttpResponseRedirect(reverse('portfolio:home'))
+            return HttpResponseRedirect(reverse('portfolio:Home'))
         else:
             return render(request, 'portfolio/login.html', {
                 'message': 'Credenciais invalidas.'
