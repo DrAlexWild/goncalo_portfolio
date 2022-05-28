@@ -160,3 +160,5 @@ def apaga_tecnologia_view(request, tecnologia_id):
     Tecnologia.objects.get(pk=tecnologia_id).delete()
     return HttpResponseRedirect(reverse('portfolio:Web'))
 
+#
+
