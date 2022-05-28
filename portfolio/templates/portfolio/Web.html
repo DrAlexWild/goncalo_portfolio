@@ -35,8 +35,8 @@
             <a href="{{ Tecnologia.link_site_oficial}}">Link do Site Oficial</a>
             <br>
             {% if request.user.is_authenticated %}
-            <a href="{% url 'portfolio:editar' Blog.id %}" class="botao">Editar</a>
-            <a href="{% url 'portfolio:apagar' Blog.id %}" class="botao">Apagar</a>
+            <a href="{% url 'portfolio:editar' Tecnologia.id %}" class="botao">Editar</a>
+            <a href="{% url 'portfolio:apagar' Tecnologia.id %}" class="botao">Apagar</a>
             {% endif %}
         </div>
     </div>
