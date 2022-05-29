@@ -93,8 +93,8 @@
 {% for Comenatario in Comenatarios %}
         <p>{{Comenatario.sobre}} : {{Comenatario.texto}}</p>
         {% if request.user.is_authenticated %}
-         <a href="{% url 'portfolio:comentario_edita' comentario.id %}" class="botao">Editar</a>
-         <a href="{% url 'portfolio:comentario_apaga' comentario.id %}" class="botao">Apagar</a>
+         <a href="{% url 'portfolio:comentario_edita' Comenatario.id %}" class="botao">Editar</a>
+         <a href="{% url 'portfolio:comentario_apaga' Comenatario.id %}" class="botao">Apagar</a>
         {% endif %}
 {% endfor %}
     <div class="outro">
