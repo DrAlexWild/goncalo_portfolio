@@ -54,8 +54,8 @@
             <br>
             <p>Tópicos abordados : {{ Cadeira.descricao}} </p>
             <br>
-            <p>Professor Teórica : {{ Cadeira.docente_teorica}}</p>
-            {% for professor in Cadeira.docentes_praticas.all %}<p>Professores Práticas : {{ professor}}</p>{% endfor %}
+            <p>Professor Teórica : <a href="{{Cadeira.docente_teorica.linkLusofona}}">{{ Cadeira.docente_teorica}}</a></p>
+            {% for professor in Cadeira.docentes_praticas.all %}<p>Professores Práticas : <a href="{{professor.linkLusofona}}">{{ professor}}</a></p>{% endfor %}
             {% for projeto in Cadeira.projetos.all %}<p>Projetos : {{ projeto}}</p>{% endfor %}
             {% for cadeira in Cadeira.linguagens.all %}<p>Linguagens : {{ cadeira}}</p>{% endfor %}
             <br>
@@ -64,6 +64,8 @@
     </div>
 {% endfor %}
 </div>
+
+<a href="{{cadeira.link}}">Link da Cadeira</a>
 
 <h1 class="base">Interesses e hobbies</h1>
 
