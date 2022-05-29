@@ -92,7 +92,9 @@
 
 {% for Comenatario in Comenatarios %}
 <div class="Tec">
-        <p>{{Comenatario.sobre}} : {{Comenatario.texto}}</p>
+        <p>{{Comenatario.sobre}}</p>
+        <p>{{Comenatario.texto}}</p>
+         <br>
         {% if request.user.is_authenticated %}
          <a href="{% url 'portfolio:comentario_edita' Comenatario.id %}" class="botao">Editar</a>
          <a href="{% url 'portfolio:comentario_apaga' Comenatario.id %}" class="botao">Apagar</a>
