@@ -152,7 +152,7 @@ def edita_tecnologia_view(request, tecnologia_id):
             return HttpResponseRedirect(reverse('portfolio:Web'))
     else:
         form = TecnologiaForm(instance=post)
-    context = {'form': form, 'post_id': tecnologia_id}
+    context = {'form': form, 'tecnologia_id': tecnologia_id}
     return render(request, 'portfolio/editartec.html', context)
 
 @login_required

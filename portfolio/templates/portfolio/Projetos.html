@@ -6,28 +6,24 @@
 <div class="article4"></div>
 <h1 class="base1">Projetos Realizados</h1>
 
+<div class="space">
 {% for Projeto in Projetos %}
-<div class="containerP">
-<div>
-    <h2>{{ Projeto.titulo}}</h2>
-    <ul>
-        <br>
-        <li>Descrição : {{ Projeto.descricao}}</li>
-        <li>Ano : {{ Projeto.ano}}</li>
-        {% for tecnologia in Projeto.tecnologias.all %}<li>Tecnologias utilizadas : {{ tecnologia}} </li>{% endfor %}
-        {% for competencia in Projeto.competencias.all %}<li>Competências desenvolvidas : {{ competencia}}</li>{% endfor %}
-        {% for participante in Projeto.paticipantes.all %}<li>Alunos participantes : {{ participante }}</li>{% endfor %}
-        <li><a href="{{Projeto.linkCadeira}}">Link da Cadeira</a></li>
-        <li><a href="{{Projeto.linkGithub}}">Link do Github </a></li>
-        <li><a href="{{Projeto.linkYoutube}}">Link do Youtube</a></li>
-</ul>
-</div>
-</div>
+    <div class="Cad">
+        <div>
+        <h2>{{ Projeto.titulo}}</h2>
+            <br>
+            <img class="img" src="{{Projeto.imagem.url}}" alt="retrato">
+            <p>Descrição : {{ Projeto.descricao}}</p>
+            <p>Ano : {{ Projeto.ano}}</p>
+            {% for tecnologia in Projeto.tecnologias.all %}<p>Tecnologias utilizadas : {{ tecnologia}} </p>{% endfor %}
+            {% for competencia in Projeto.competencias.all %}<p>Competências desenvolvidas : {{ competencia}}</p>{% endfor %}
+            {% for participante in Projeto.paticipantes.all %}<p>Alunos participantes : {{ participante }}</p>{% endfor %}
+            <p><a href="{{Projeto.linkCadeira}}">Link da Cadeira</a></p>
+            <p><a href="{{Projeto.linkGithub}}">Link do Github </a></p>
+            <p><a href="{{Projeto.linkYoutube}}">Link do Youtube</a></p>
+        </div>
+    </div>
 {% endfor %}
-
-<h1 class="base1">Trabalhos Finais de Curso</h1>
-
-<p>imrpimir aqui 6 Trabalhos finais de Curso</p>
-
+</div>
 
 {% endblock %}
