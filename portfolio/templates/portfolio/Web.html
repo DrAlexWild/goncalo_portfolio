@@ -88,6 +88,12 @@
 {% endfor %}
 </section>
 
+<h1 class="base1">Comentarios</h1>
+
+{% for Comenatario in Comenatarios %}
+        <p>{{Comenatario.sobre}} : {{Comenatario.texto}}</p>
+{% endfor %}
+
 <h1 class="base1">Quiz</h1>
 
 <div class="quizz">

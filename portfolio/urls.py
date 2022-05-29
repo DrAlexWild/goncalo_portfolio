@@ -17,5 +17,8 @@ urlpatterns = [
     path("tecnologia_nova", views.nova_tecnologia_view, name="tecnologia_nova"),
     path('tecnologia_editar/<int:tecnologia_id>', views.edita_tecnologia_view, name='tecnologia_editar'),
     path('tecnologia_apaga/<int:tecnologia_id>', views.apaga_tecnologia_view, name='tecnologia_apagar'),
+    path('comentario_novo/', views.novo_comentario_view, name='comentario_novo'),
+    path('comentario_edita/<int:comentario_id>', views.edita_comentario_view,name='comentario_edita'),
+    path('comentario_apaga/<int:comentario_id>', views.apaga_comentario_view,name='comentario_apaga'),
 
 ]

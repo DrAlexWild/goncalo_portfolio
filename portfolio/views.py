@@ -5,8 +5,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
 from .models import Blog, Apti, Formacao, Cadeira, Projeto, Tecnologia, Noticia, Laboratorio, Quizz, PadroesUsados, \
-    TecnologiaUsada
-from .forms import BlogForm, QuizzForm, TecnologiaForm
+    TecnologiaUsada, Comenatario
+from .forms import BlogForm, QuizzForm, TecnologiaForm, ComenatarioForm
 from .forms import AptiForm
 from .forms import FormacaoForm
 
@@ -160,5 +160,31 @@ def apaga_tecnologia_view(request, tecnologia_id):
     Tecnologia.objects.get(pk=tecnologia_id).delete()
     return HttpResponseRedirect(reverse('portfolio:Web'))
 
-#
+def novo_comentario_view(request):
+    if request.method == 'POST':
+        form = ComenatarioForm(request.POST,request.FILES)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('portfolio:Web'))
+    form = ComenatarioForm()
+    context = {'form': form}
+    return render(request, 'portfolio/novacom.html', context)
+
+@login_required
+def edita_comentario_view(request, comentario_id):
+    post = Comenatario.objects.get(id=comentario_id)
+    if request.method == 'POST':
+        form = ComenatarioForm(request.POST,request.FILES,instance=post)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('portfolio:Web'))
+    else:
+        form = ComenatarioForm(instance=post)
+    context = {'form': form, 'comentario_id': comentario_id}
+    return render(request, 'portfolio/editarcom.html', context)
+
+
+def apaga_comentario_view(request, comentario_id):
+    Comenatario.objects.get(id=comentario_id).delete()
+    return HttpResponseRedirect(reverse('portfolio:Web'))
 
