@@ -36,7 +36,7 @@
             <br>
             {% if request.user.is_authenticated %}
             <a href="{% url 'portfolio:tecnologia_editar' Tecnologia.id %}" class="botao">Editar</a>
-            <a href="{% url 'portfolio:tecnologia_apaga' Tecnologia.id %}" class="botao">Apagar</a>
+            <a href="{% url 'portfolio:tecnologia_apagar' Tecnologia.id %}" class="botao">Apagar</a>
             {% endif %}
         </div>
     </div>
