@@ -46,6 +46,7 @@ def Web_view(request):
         'Laboratorios': Laboratorio.objects.all(),
         'PadroesUsadoss': PadroesUsados.objects.all(),
         'TecnologiaUsadas': TecnologiaUsada.objects.all(),
+        'Comenatarios': Comenatario.objects.all(),
         'form': form,
     }
 
