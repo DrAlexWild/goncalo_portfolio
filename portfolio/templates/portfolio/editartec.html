@@ -4,7 +4,7 @@
 {% block main %}
 <h3>Nova Tecnologia</h3>
 <section>
-<form method ="POST" action="{% url 'portfolio:editartec'  tecnologia_id %}" enctype="multipart/form-data">
+<form method ="POST" action="{% url 'portfolio:tecnologia_editar'  tecnologia_id %}" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
     <a href="{% url 'portfolio:Web' %}" role="button">Cancelar</a>
