@@ -88,15 +88,18 @@
 {% endfor %}
 </section>
 
-<h1 class="base1">Comentarios</h1>
+<h1 class="base2">Comentarios</h1>
 
 {% for Comenatario in Comenatarios %}
+<div class="Tec">
         <p>{{Comenatario.sobre}} : {{Comenatario.texto}}</p>
         {% if request.user.is_authenticated %}
          <a href="{% url 'portfolio:comentario_edita' Comenatario.id %}" class="botao">Editar</a>
          <a href="{% url 'portfolio:comentario_apaga' Comenatario.id %}" class="botao">Apagar</a>
         {% endif %}
+</div>
 {% endfor %}
+
     <div class="outro">
         <a href="{% url 'portfolio:comentario_novo' %}" class="botao">+ Faz o teu Comentario</a>
     </div>
