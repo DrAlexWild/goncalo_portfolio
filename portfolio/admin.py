@@ -2,7 +2,7 @@ from django.contrib import admin
 
 # Register your models here.
 from .models import Blog, Apti, Pessoa, Projeto, Cadeira, Linguagem, Curso, Formacao, Tecnologia, Laboratorio, Noticia, \
-    Quizz, Comenatario, PadroesUsados, TecnologiaUsada
+    Quizz, Comenatario, PadroesUsados, TecnologiaUsada, Trabalho_Final
 
 admin.site.register(Blog)
 admin.site.register(Apti)
@@ -19,3 +19,4 @@ admin.site.register(Quizz)
 admin.site.register(Comenatario)
 admin.site.register(PadroesUsados)
 admin.site.register(TecnologiaUsada)
+admin.site.register(Trabalho_Final)

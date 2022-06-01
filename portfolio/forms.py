@@ -3,7 +3,7 @@ from django import forms
 
 
 from .models import Blog, Apti, Pessoa, Projeto, Cadeira, Linguagem, Curso, Formacao, Tecnologia, Laboratorio, Noticia, \
-    Quizz, Comenatario, PadroesUsados, TecnologiaUsada
+    Quizz, Comenatario, PadroesUsados, TecnologiaUsada, Trabalho_Final
 
 
 class BlogForm(ModelForm):
@@ -106,5 +106,10 @@ class PadroesUsadosForm(ModelForm):
 class TecnologiaUsadaForm(ModelForm):
     class Meta:
         model = TecnologiaUsada
+        fields = '__all__'
+
+class Trabalho_FinalForm(ModelForm):
+    class Meta:
+        model = Trabalho_Final
         fields = '__all__'
 
