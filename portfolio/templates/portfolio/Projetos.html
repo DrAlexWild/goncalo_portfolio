@@ -43,9 +43,11 @@
             <img class="img" src="{{TrabalhoFinal.imagem.url}}" alt="retrato">
             {% for autores in TrabalhoFinal.autor.all %}<p>Autores : {{ autores}}</p>{% endfor %}
             {% for orientadores in TrabalhoFinal.orientador.all %}<p>Orientador : {{ orientadores}}</p>{% endfor %}
+            <br>
             <p>{{ TrabalhoFinal.resumo}}</p>
+            <br>
             <p>Ano : {{ TrabalhoFinal.ano}}</p>
-            <bR>
+            <br>
             <p><a href="{{TrabalhoFinal.linkrelatorio}}">Link do Relatorio</a></p>
             <p><a href="{{TrabalhoFinal.linkGithub}}">Link do Github </a></p>
             <p><a href="{{TrabalhoFinal.linkYoutube}}">Link do Youtube</a></p>
