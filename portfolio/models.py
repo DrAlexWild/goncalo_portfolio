@@ -141,7 +141,7 @@ class TrabalhoFinal(models.Model):
     autor = models.ManyToManyField(Pessoa,related_name='autor')
     orientador = models.ManyToManyField(Pessoa,related_name='orientador')
     ano = models.IntegerField()
-    descricao = models.TextField()
+    descricao = models.TextField(default="",blank=True)
     resumo = models.CharField(max_length=500)
     linkrelatorio = models.URLField(max_length=200,blank=True)
     linkgithub = models.URLField(max_length=200,blank=True)
