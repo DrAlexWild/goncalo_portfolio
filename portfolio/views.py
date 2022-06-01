@@ -5,7 +5,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
 from .models import Blog, Apti, Formacao, Cadeira, Projeto, Tecnologia, Noticia, Laboratorio, Quizz, PadroesUsados, \
-    TecnologiaUsada, Comenatario
+    TecnologiaUsada, Comenatario, TrabalhoFinal
 from .forms import BlogForm, QuizzForm, TecnologiaForm, ComenatarioForm
 from .forms import AptiForm
 from .forms import FormacaoForm
@@ -29,6 +29,7 @@ def sobre_view(request):
 def Projetos_view(request):
     context = {
         'Projetos': Projeto.objects.all(),
+        'TrabalhoFinals': TrabalhoFinal.objects.all(),
     }
     return render(request, 'portfolio/Projetos.html', context)
 

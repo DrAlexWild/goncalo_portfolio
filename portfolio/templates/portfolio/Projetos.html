@@ -26,4 +26,27 @@
 {% endfor %}
 </div>
 
+<h1 class="base2">Trabalhos Finais DEISI</h1>
+
+<P>A baixo são apresentados 6 trabalhos finais de curso realizados nos ultímos 2 anos que mais me despertaram interesse</P>
+
+
+<div class="space">
+{% for TrabalhoFinal in TrabalhoFinals %}
+        <div class="Cad">
+        <div>
+        <h2>{{ TrabalhoFinal.titulo}}</h2>
+            <br>
+            <img class="img" src="{{TrabalhoFinal.imagem.url}}" alt="retrato">
+            <p>Autores : {{ TrabalhoFinal.autor}}</p>
+            <p>Descrição : {{ TrabalhoFinal.descricao}}</p>
+            <p>Ano : {{ TrabalhoFinal.ano}}</p>
+            <p><a href="{{TrabalhoFinal.linkrelatorio}}">Link do Relatorio</a></p>
+            <p><a href="{{TrabalhoFinal.linkGithub}}">Link do Github </a></p>
+            <p><a href="{{TrabalhoFinal.linkYoutube}}">Link do Youtube</a></p>
+        </div>
+    </div>
+{% endfor %}
+</div>
+
 {% endblock %}

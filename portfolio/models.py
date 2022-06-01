@@ -95,6 +95,7 @@ class Cadeira(models.Model):
     linguagens = models.ManyToManyField(Linguagem,blank=True)
     curso = models.ManyToManyField(Curso)
     imagem = models.ImageField(default="default.png",blank=True)
+    linkCadeira = models.URLField(max_length=200,blank=True)
     ranking = models.IntegerField(
         default=1,
         validators=[
@@ -140,11 +141,12 @@ class TrabalhoFinal(models.Model):
     autor = models.ManyToManyField(Pessoa,related_name='autor')
     orientador = models.ManyToManyField(Pessoa,related_name='orientador')
     ano = models.IntegerField()
-    sumario = models.CharField(max_length=50)
+    descricao = models.TextField()
     resumo = models.CharField(max_length=500)
-    linkrelatorio = models.URLField(max_length=200)
-    linkgithub = models.URLField(max_length=200)
-    linkYoutube = models.URLField(max_length=200)
+    linkrelatorio = models.URLField(max_length=200,blank=True)
+    linkgithub = models.URLField(max_length=200,blank=True)
+    linkYoutube = models.URLField(max_length=200,blank=True)
+    imagem = models.ImageField(default="default.png", blank=True)
 
 
 class Quizz(models.Model):
