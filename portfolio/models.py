@@ -136,7 +136,7 @@ class Noticia(models.Model):
     def __str__(self):
         return self.titulo[:40]
 
-class TrabalhoFinal(models.Model):
+class TrabalhoFinal_deisi(models.Model):
     titulo = models.CharField(max_length=50)
     autor = models.ManyToManyField(Pessoa,related_name='autor')
     orientador = models.ManyToManyField(Pessoa,related_name='orientador')
