@@ -157,6 +157,17 @@ class Comenatario(models.Model):
     sobre = models.CharField(max_length=50)
     texto = models.TextField()
 
+class Trabalho_Final(models.Model):
+    titulo = models.CharField(max_length=50)
+    autor = models.ManyToManyField(Pessoa,related_name='autor')
+    orientador = models.ManyToManyField(Pessoa,related_name='orientador')
+    ano = models.IntegerField()
+    descricao = models.TextField(default="",blank=True)
+    resumo = models.CharField(max_length=500)
+    linkrelatorio = models.URLField(max_length=200,blank=True)
+    linkgithub = models.URLField(max_length=200,blank=True)
+    linkYoutube = models.URLField(max_length=200,blank=True)
+    imagem = models.ImageField(default="default.png", blank=True)
 
 
 
