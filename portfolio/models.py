@@ -136,18 +136,6 @@ class Noticia(models.Model):
     def __str__(self):
         return self.titulo[:40]
 
-class TrabalhoFinal_deisi(models.Model):
-    titulo = models.CharField(max_length=50)
-    autor = models.ManyToManyField(Pessoa,related_name='autor')
-    orientador = models.ManyToManyField(Pessoa,related_name='orientador')
-    ano = models.IntegerField()
-    descricao = models.TextField(default="",blank=True)
-    resumo = models.CharField(max_length=500)
-    linkrelatorio = models.URLField(max_length=200,blank=True)
-    linkgithub = models.URLField(max_length=200,blank=True)
-    linkYoutube = models.URLField(max_length=200,blank=True)
-    imagem = models.ImageField(default="default.png", blank=True)
-
 
 class Quizz(models.Model):
     questao_1 = models.CharField(max_length=30)
@@ -168,6 +156,7 @@ class PadroesUsados(models.Model):
 class Comenatario(models.Model):
     sobre = models.CharField(max_length=50)
     texto = models.TextField()
+
 
 
 
