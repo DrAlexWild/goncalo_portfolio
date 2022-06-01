@@ -28,8 +28,11 @@
 
 <h1 class="base2">Trabalhos Finais DEISI</h1>
 
-<P>A baixo são apresentados 6 trabalhos finais de curso realizados nos ultímos 2 anos que mais me despertaram interesse</P>
-
+<div class="textoM1">
+        <h2>TFCS DO DEISI</h2>
+        <br>
+        <p>A baixo são apresentados 6 trabalhos finais de curso realizados nos ultímos 2 anos que mais me despertaram interesse.</p>
+</div>
 
 <div class="space">
 {% for TrabalhoFinal in Trabalho_Finals %}
@@ -38,9 +41,11 @@
         <h2>{{ TrabalhoFinal.titulo}}</h2>
             <br>
             <img class="img" src="{{TrabalhoFinal.imagem.url}}" alt="retrato">
-            <p>Autores : {{ TrabalhoFinal.autor}}</p>
-            <p>Descrição : {{ TrabalhoFinal.descricao}}</p>
+            {% for autores in TrabalhoFinal.autor.all %}<p>Autores : {{ autores}}</p>{% endfor %}
+            {% for orientadores in TrabalhoFinal.orientador.all %}<p>Orientador : {{ orientadores}}</p>{% endfor %}
+            <p>{{ TrabalhoFinal.resumo}}</p>
             <p>Ano : {{ TrabalhoFinal.ano}}</p>
+            <bR>
             <p><a href="{{TrabalhoFinal.linkrelatorio}}">Link do Relatorio</a></p>
             <p><a href="{{TrabalhoFinal.linkGithub}}">Link do Github </a></p>
             <p><a href="{{TrabalhoFinal.linkYoutube}}">Link do Youtube</a></p>
