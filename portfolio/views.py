@@ -211,12 +211,12 @@ def edita_trabalhofinal_view(request, trabalhofinal_id):
             form.save()
             return HttpResponseRedirect(reverse('portfolio:Projetos'))
     else:
-        form = ComenatarioForm(instance=post)
+        form = Trabalho_FinalForm(instance=post)
     context = {'form': form, 'trabalhofinal_id': trabalhofinal_id}
     return render(request, 'portfolio/editarfin.html', context)
 
 
 def apaga_trabalhofinal_view(request, trabalhofinal_id):
     Trabalho_Final.objects.get(id=trabalhofinal_id).delete()
-    return HttpResponseRedirect(reverse('portfolio:Web'))
+    return HttpResponseRedirect(reverse('portfolio:Projetos'))
 

@@ -1,7 +1,7 @@
 {% extends 'portfolio/layout.html' %}
 {% load static %}
 {% block main %}
-<h3>Comentario</h3>
+<h3>Trabalho Final</h3>
     <form action="{% url 'portfolio:trabalhofinal_edita' trabalhofinal_id %}" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form }}
