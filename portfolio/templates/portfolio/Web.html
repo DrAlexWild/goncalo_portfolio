@@ -43,9 +43,11 @@
     </div>
 {% endfor %}
     </div>
-    <div class="outro">
-        <a href="{% url 'portfolio:tecnologia_nova' %}" class="botao">+ Nova tecnologia</a>
-    </div>
+{% if request.user.is_authenticated %}
+<div class="outro">
+    <a href="{% url 'portfolio:tecnologia_nova' %}" class="botao">+ Nova tecnologia</a>
+</div>
+{% endif %}
 
 <h1 class="base1">Notícias artigos</h1>
 <div class="article9"></div>

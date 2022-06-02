@@ -130,6 +130,7 @@ def view_logout(request):
         'message': 'Foi desconetado.'
     })
 
+@login_required
 def nova_tecnologia_view(request):
     if not request.user.is_authenticated:
         return HttpResponseRedirect(reverse('portfolio:login'))
