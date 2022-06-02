@@ -59,7 +59,7 @@
             {% for projeto in Cadeira.projetos.all %}<p>Projetos : {{ projeto}}</p>{% endfor %}
             {% for cadeira in Cadeira.linguagens.all %}<p>Linguagens : {{ cadeira}}</p>{% endfor %}
             <br>
-            <a href="{{Cadeira.linkCadeira}}">Link da Cadeira</a>
+            <a href="{{Cadeira.linkCadeira}}">Link da Cadeira</a><br>
             <br>
             <p>Ranking(0/5) : {{ Cadeira.ranking}} </p>
         </div>
