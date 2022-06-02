@@ -20,5 +20,8 @@ urlpatterns = [
     path('comentario_novo/', views.novo_comentario_view, name='comentario_novo'),
     path('comentario_edita/<int:comentario_id>', views.edita_comentario_view,name='comentario_edita'),
     path('comentario_apaga/<int:comentario_id>', views.apaga_comentario_view,name='comentario_apaga'),
+    path('trabalhofinal_novo/', views.novo_trabalhofinal_view, name='trabalhofinal_novo'),
+    path('trabalhofinal_edita/<int:trabalhofinal_id>', views.edita_trabalhofinal_view, name='trabalhofinal_edita'),
+    path('trabalhofinal_apaga/<int:trabalhofinal_id>', views.apaga_trabalhofinal_view, name='trabalhofinal_apaga'),
 
 ]

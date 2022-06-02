@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 
 from .models import Blog, Apti, Formacao, Cadeira, Projeto, Tecnologia, Noticia, Laboratorio, Quizz, PadroesUsados, \
     TecnologiaUsada, Comenatario, Trabalho_Final
-from .forms import BlogForm, QuizzForm, TecnologiaForm, ComenatarioForm
+from .forms import BlogForm, QuizzForm, TecnologiaForm, ComenatarioForm, Trabalho_FinalForm
 from .forms import AptiForm
 from .forms import FormacaoForm
 
@@ -188,5 +188,35 @@ def edita_comentario_view(request, comentario_id):
 
 def apaga_comentario_view(request, comentario_id):
     Comenatario.objects.get(id=comentario_id).delete()
+    return HttpResponseRedirect(reverse('portfolio:Web'))
+
+
+@login_required
+def novo_trabalhofinal_view(request):
+    if request.method == 'POST':
+        form = Trabalho_FinalForm(request.POST,request.FILES)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('portfolio:Projetos'))
+    form = Trabalho_FinalForm()
+    context = {'form': form}
+    return render(request, 'portfolio/novafin.html', context)
+
+@login_required
+def edita_trabalhofinal_view(request, trabalhofinal_id):
+    post = Trabalho_Final.objects.get(id=trabalhofinal_id)
+    if request.method == 'POST':
+        form = Trabalho_FinalForm(request.POST,request.FILES,instance=post)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('portfolio:Projetos'))
+    else:
+        form = ComenatarioForm(instance=post)
+    context = {'form': form, 'trabalhofinal_id': trabalhofinal_id}
+    return render(request, 'portfolio/editarfin.html', context)
+
+
+def apaga_trabalhofinal_view(request, trabalhofinal_id):
+    Trabalho_Final.objects.get(id=trabalhofinal_id).delete()
     return HttpResponseRedirect(reverse('portfolio:Web'))
 

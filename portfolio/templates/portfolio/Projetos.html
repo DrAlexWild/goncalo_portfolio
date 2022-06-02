@@ -51,9 +51,20 @@
             <p><a href="{{TrabalhoFinal.linkrelatorio}}">Link do Relatorio</a></p>
             <p><a href="{{TrabalhoFinal.linkGithub}}">Link do Github </a></p>
             <p><a href="{{TrabalhoFinal.linkYoutube}}">Link do Youtube</a></p>
+            <br>
+            {% if request.user.is_authenticated %}
+            <a href="{% url 'portfolio:trabalhofinal_edita' Trabalho_Final.id %}" class="botao">Editar</a>
+            <a href="{% url 'portfolio:trabalhofinal_apaga' Trabalho_Final.id %}" class="botao">Apagar</a>
+            {% endif %}
         </div>
     </div>
 {% endfor %}
 </div>
+
+{% if request.user.is_authenticated %}
+<div class="outro">
+        <a href="{% url 'portfolio:trabalhofinal_novo' %}" class="botao">+ Novo TFC</a>
+</div>
+{% endif %}
 
 {% endblock %}
