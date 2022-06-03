@@ -36,6 +36,9 @@ def Projetos_view(request):
 def Contacto_view(request):
     return render(request, 'portfolio/Contacto.html')
 
+def metereologia_view(request):
+    return render(request, 'portfolio/metereologia.html')
+
 def Web_view(request):
     grafico_quiz(Quizz.objects.all())
 
