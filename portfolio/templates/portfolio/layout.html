@@ -43,7 +43,19 @@
     <footer>
         <p>Gonçalo Pedroso</p>
         <img src="{% static 'portfolio/images/ulht.jpg' %}">
-        <p>ULHT, 2022</p>
+        <script type="text/javascript">
+        function time()
+        {
+        today=new Date();
+        h=today.getHours();
+        m=today.getMinutes();
+        document.getElementById('txt').innerHTML=h+":"+m+","+"2022";
+        setTimeout('time()',500);
+        }
+        </script>
+        <div onload="time()">
+        <div id="txt"></div>
+        </div>
     </footer>
 </body>
 </html>
