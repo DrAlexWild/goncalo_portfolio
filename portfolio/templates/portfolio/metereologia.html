@@ -11,13 +11,13 @@
         fetch('https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/{globalIdLocal}.json')
         .then(response => response.json())
         .then(data => {
-             document.querySelector('body').innerHTML = 'País : ${data.country}';
+             document.querySelector('main').innerHTML = 'País : ${data.country}';
         });
         .then(data => {
              const tMin = data.data[1].tMin;
-             document.querySelector('body').innerHTML = 'A temperatura mínima é de ${tMin} graus';
+             document.querySelector('main').innerHTML = `A temperatura mínima é de ${tMin} graus`;
              const tMax = data.data[2].tMax;
-             document.querySelector('body').innerHTML = 'A temperatura máxima é de ${tMax} graus';
+             document.querySelector('body').innerHTML = `A temperatura máxima é de ${tMax} graus`;
         });
     </script>
 
