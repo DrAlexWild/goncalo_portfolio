@@ -692,9 +692,99 @@ text-align: center;
 
 @media (max-width: 900px){
 .textoM1 {
-    height: 400px;
+    height: 420px;
     padding-top: 20px;
     padding-left: 20px;
     padding-right: 20px;
 }
+
+.cabeçalho{
+background-image: url("images/visitar.jpg");
+background-size: cover;
+background-position: center;
+height: 90vh;
+width:100%;
+min-height: 200px;
+}
+
+article {
+height: 50vh;
+background-image: url("images/pccodigo.jpg");
+background-size: cover;
+background-position: center;
+width:100%;
+min-height: 200px;
+}
+
+.article2{
+height: 50vh;
+background-image: url("images/ryzen.jpg");
+background-size: cover;
+background-position: center;
+width:100%;
+min-height: 200px;
+}
+
+.article3{
+height: 40vh;
+background-image: url("images/formacao.jpg");
+background-size: cover;
+background-position: center;
+width:100%;
+min-height: 200px;
+}
+
+.article5{
+height: 45vh;
+background-image: url("images/cervejas.jpg");
+background-size: cover;
+background-position: center;
+width:100%;
+min-height: 200px;
+}
+.article6{
+height: 40vh;
+background-image: url("images/jeepss.jpg");
+background-size: cover;
+background-position: center;
+width:100%;
+min-height: 200px;
+}
+
+.article4{
+height: 60vh;
+background-image: url("images/projetos.jpg");
+background-size: cover;
+background-position: center;
+width:100%;
+min-height: 200px;
+}
+
+.article7{
+height: 50vh;
+background-image: url("images/telefone.jpg");
+background-size: cover;
+background-position: center;
+width:100%;
+min-height: 200px;
+}
+
+.article8{
+height: 30vh;
+background-image: url("images/codigo.jpg");
+background-size: cover;
+background-position: center;
+width:100%;
+min-height: 200px;
+}
+
+.article9{
+height: 30vh;
+background-image: url("images/noticias.jpg");
+background-size: cover;
+background-position: center;
+width:100%;
+min-height: 200px;
+}
+
 }
