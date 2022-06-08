@@ -17,7 +17,6 @@ header {
   overflow: hidden;
   z-index: 999;
 }
-}
 
 header div {
   font-size: 2em;
@@ -27,6 +26,10 @@ header div {
 header nav {
   display:flex;
   justify-contents: flex-end;
+}
+
+.menugrande nav{
+font-size: 25px;
 }
 
 
@@ -773,6 +776,21 @@ background-size: cover;
 background-position: center;
 width:100%;
 min-height: 200px;
+}
+
+header {
+  height: 8vh;
+  background: #181818;
+  color: white;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Cuprum', sans-serif;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+  z-index: 999;
 }
 
 }
