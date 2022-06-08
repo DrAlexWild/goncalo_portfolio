@@ -1,23 +1,49 @@
 
-{% block main %}
 {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/estilos.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cuprum:wght@600&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<header>
+    <nav>
+        <a href="{% url 'portfolio:Home' %}">Portfolio</a>
+    </nav>
+    <nav>
+      <a href="{% url 'portfolio:Home' %}">Home</a>
+      <a href="{% url 'portfolio:Sobre Mim' %}">Sobre mim</a>
+      <a href="{% url 'portfolio:Projetos' %}">Projetos</a>
+        <a href="{% url 'portfolio:Web' %}">Web</a>
+        <a href="{% url 'portfolio:Blog' %}">Blog</a>
+        <a href="{% url 'portfolio:Contacto' %}">Contacto</a>
+        <a href="{% url 'portfolio:metereologia' %}">Metereologia</a>
+    </nav>
+</header>
 
-    <p>Metereologia</p>
-    <script>
-        let globalIdLocal = 1090821;
+
+     <p>Metereologia</p>
+     <span id="data"></span>
+     <br>
+     <span id="minima"></span>
+     <br>
+     <span id="maxima"></span>
+
+     <script>
         document.addEventListener('DOMContentLoaded', function () {
-        fetch('https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/{globalIdLocal}.json')
+        fetch('https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1090821.json')
         .then(response => response.json())
         .then(data => {
-             document.querySelector('main').innerHTML = 'País : ${data.country}';
-        })
-        .then(data => {
+             const forecastDate = data.data[7].forecastDate;
+             document.getElementById('data').innerHTML = `Em portugal no dia ${forecastDate} obtemos a seguinte metereologia:`;
              const tMin = data.data[1].tMin;
-             document.querySelector('body').innerHTML = `A temperatura mínima é de ${tMin} graus`;
+             document.getElementById('minima').innerHTML = `A temperatura mínima é de ${tMin} graus`;
              const tMax = data.data[2].tMax;
-             document.querySelector('body').innerHTML = `A temperatura máxima é de ${tMax} graus`;
+             document.getElementById('maxima').innerHTML = `A temperatura máxima é de ${tMax} graus`;
         });
         })
     </script>
-
-{% endblock %}
