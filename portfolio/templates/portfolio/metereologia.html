@@ -27,10 +27,25 @@
 </header>
 
 
-     <p>Metereologia</p>
-     <span id="minima"></span>
-     <br>
-     <span id="maxima"></span>
+     <div class="article10"></div>
+     <div class="textoM1">
+        <h2>TEMPERATURA MÍNIMA</h2>
+        <br>
+        <p><span id="minima"></span></p>
+    </div>
+     <div class="article11"></div>
+     <div class="textoM1">
+        <h2>TEMPERATURA MÁXIMA</h2>
+        <br>
+        <p><span id="maxima"></span></p>
+    </div>
+     <div class="article12"></div>
+     <div class="textoM1">
+        <h2>DIREÇÃO DO VENTO</h2>
+        <br>
+        <p><span id="intensidade"></span></p>
+    </div>
+
 
      <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -38,9 +53,29 @@
         .then(response => response.json())
         .then(data => {
              const tMin = data.data[1].tMin;
-             document.getElementById('minima').innerHTML = `A temperatura mínima é de ${tMin} graus`;
+             document.getElementById('minima').innerHTML = `A previsão meteorológica da temperatura mínima diária nos proximos 5 dias é de ${tMin}º graus`;
              const tMax = data.data[2].tMax;
-             document.getElementById('maxima').innerHTML = `A temperatura máxima é de ${tMax} graus`;
+             document.getElementById('maxima').innerHTML = `A previsão meteorológica da temperatura máxima diária nos proximos 5 dias é de ${tMax}º graus`;
+             const predWindDir = data.data[3].predWindDir;
+             document.getElementById('intensidade').innerHTML = `A previsão meteorológica para o rumo predominante do vento é para ${predWindDir}`;
         });
         })
     </script>
+
+    <footer>
+        <p>Gonçalo Pedroso</p>
+        <img src="{% static 'portfolio/images/ulht.jpg' %}">
+        <script type="text/javascript">
+        function horas()
+        {
+        today=new Date();
+        h=today.getHours();
+        m=today.getMinutes();
+        document.getElementById('txt').innerHTML=h+":"+m+","+"2022";
+        setTimeout('time()',500);
+        }
+        </script>
+        <body onload="horas()">
+        <div id="txt"></div>
+        </body>
+    </footer>

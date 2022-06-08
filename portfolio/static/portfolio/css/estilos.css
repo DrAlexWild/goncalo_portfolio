@@ -146,6 +146,36 @@ height: 30vh;
   align-items: start;
 }
 
+.article10{
+  height: 30vh;
+  background-image: url("https://source.unsplash.com/GXEZuWo5m4I");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  align-items: start;
+}
+
+.article11{
+  height: 30vh;
+  background-image: url("https://source.unsplash.com/l-VXj3-Eisk");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  align-items: start;
+}
+
+.article12{
+  height: 30vh;
+  background-image: url("https://source.unsplash.com/ytUI2b0R1DI");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  align-items: start;
+}
+
 
  .texto{
     color: #181818;
