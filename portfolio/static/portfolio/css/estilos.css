@@ -700,7 +700,7 @@ text-align: center;
 
 article {
 height: 50vh;
-background-image: url("/static/images/pccodigo.jpg");
+background-image: url("/static/portfolio/images/pccodigo.jpg");
 background-size: cover;
 background-position: center;
 width:100%;
@@ -709,7 +709,7 @@ min-height: 200px;
 
 .article2{
 height: 50vh;
-background-image: url("/static/images/ryzen.jpg");
+background-image: url("/static/portfolio/images/ryzen.jpg");
 background-size: cover;
 background-position: center;
 width:100%;
@@ -718,7 +718,7 @@ min-height: 200px;
 
 .article3{
 height: 40vh;
-background-image: url("/static/images/formacao.jpg");
+background-image: url("/static/portfolio/images/formacao.jpg");
 background-size: cover;
 background-position: center;
 width:100%;
@@ -727,7 +727,7 @@ min-height: 200px;
 
 .article5{
 height: 45vh;
-background-image: url("/static/images/cervejas.jpg");
+background-image: url("/static/portfolio/images/cervejas.jpg");
 background-size: cover;
 background-position: center;
 width:100%;
@@ -735,7 +735,7 @@ min-height: 200px;
 }
 .article6{
 height: 40vh;
-background-image: url("/static/images/jeepss.jpg");
+background-image: url("/static/portfolio/images/jeepss.jpg");
 background-size: cover;
 background-position: center;
 width:100%;
@@ -744,7 +744,7 @@ min-height: 200px;
 
 .article4{
 height: 60vh;
-background-image: url("/static/images/projetos.jpg");
+background-image: url("/static/portfolio/images/projetos.jpg");
 background-size: cover;
 background-position: center;
 width:100%;
@@ -753,7 +753,7 @@ min-height: 200px;
 
 .article7{
 height: 50vh;
-background-image: url("/static/images/telefone.jpg");
+background-image: url("/static/portfolio/images/telefone.jpg");
 background-size: cover;
 background-position: center;
 width:100%;
@@ -762,7 +762,7 @@ min-height: 200px;
 
 .article8{
 height: 30vh;
-background-image: url("/static/images/codigo.jpg");
+background-image: url("/static/portfolio/images/codigo.jpg");
 background-size: cover;
 background-position: center;
 width:100%;
