@@ -771,7 +771,7 @@ min-height: 200px;
 
 .article9{
 height: 30vh;
-background-image: url("portfolio/images/noticias.jpg");
+background-image: url("/static/portfolio/images/noticias.jpg");
 background-size: cover;
 background-position: center;
 width:100%;
