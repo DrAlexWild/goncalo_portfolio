@@ -28,4 +28,9 @@ urlpatterns = [
     path('cadeira_edita/<int:cadeira_id>', views.edita_cadeira_view, name='cadeira_edita'),
     path('cadeira_apaga/<int:cadeira_id>', views.apaga_cadeira_view, name='cadeira_apaga'),
 
+
+    path('projeto_novo/', views.novo_projeto_view, name='projeto_novo'),
+    path('projeto_edita/<int:projeto_id>', views.edita_projeto_view, name='projeto_edita'),
+    path('projeto_apaga/<int:projeto_id>', views.apaga_projeto_view, name='projeto_apaga'),
+
 ]

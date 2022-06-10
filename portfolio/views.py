@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 
 from .models import Blog, Apti, Formacao, Cadeira, Projeto, Tecnologia, Noticia, Laboratorio, Quizz, PadroesUsados, \
     TecnologiaUsada, Comenatario, Trabalho_Final
-from .forms import BlogForm, QuizzForm, TecnologiaForm, ComenatarioForm, Trabalho_FinalForm, CadeiraForm
+from .forms import BlogForm, QuizzForm, TecnologiaForm, ComenatarioForm, Trabalho_FinalForm, CadeiraForm, ProjetoForm
 from .forms import AptiForm
 from .forms import FormacaoForm
 
@@ -224,21 +224,6 @@ def apaga_trabalhofinal_view(request, trabalhofinal_id):
     Trabalho_Final.objects.get(id=trabalhofinal_id).delete()
     return HttpResponseRedirect(reverse('portfolio:Projetos'))
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @login_required
 def novo_cadeira_view(request):
     if request.method == 'POST':
@@ -267,3 +252,52 @@ def edita_cadeira_view(request, cadeira_id):
 def apaga_cadeira_view(request, cadeira_id):
     Cadeira.objects.get(id=cadeira_id).delete()
     return HttpResponseRedirect(reverse('portfolio:sobre'))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@login_required
+def novo_projeto_view(request):
+    if request.method == 'POST':
+        form = ProjetoForm(request.POST,request.FILES)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('portfolio:Projetos'))
+    form = ProjetoForm()
+    context = {'form': form}
+    return render(request, 'portfolio/novapro.html', context)
+
+@login_required
+def edita_projeto_view(request, projeto_id):
+    post = Projeto.objects.get(id=projeto_id)
+    if request.method == 'POST':
+        form = ProjetoForm(request.POST,request.FILES,instance=post)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('portfolio:Projetos'))
+    else:
+        form = ProjetoForm(instance=post)
+    context = {'form': form, 'projeto_id': projeto_id}
+    return render(request, 'portfolio/editarpro.html', context)
+
+
+def apaga_projeto_view(request, projeto_id):
+    Projeto.objects.get(id=projeto_id).delete()
+    return HttpResponseRedirect(reverse('portfolio:Projetos'))
