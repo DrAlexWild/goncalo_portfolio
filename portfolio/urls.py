@@ -24,7 +24,6 @@ urlpatterns = [
     path('trabalhofinal_novo/', views.novo_trabalhofinal_view, name='trabalhofinal_novo'),
     path('trabalhofinal_edita/<int:trabalhofinal_id>', views.edita_trabalhofinal_view, name='trabalhofinal_edita'),
     path('trabalhofinal_apaga/<int:trabalhofinal_id>', views.apaga_trabalhofinal_view, name='trabalhofinal_apaga'),
-
     path('cadeira_novo/', views.novo_cadeira_view, name='cadeira_novo'),
     path('cadeira_edita/<int:cadeira_id>', views.edita_cadeira_view, name='cadeira_edita'),
     path('cadeira_apaga/<int:cadeira_id>', views.apaga_cadeira_view, name='cadeira_apaga'),
