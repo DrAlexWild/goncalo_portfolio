@@ -62,10 +62,21 @@
             <a href="{{Cadeira.linkCadeira}}">Link da Cadeira</a><br>
             <br>
             <p>Ranking(0/5) : {{ Cadeira.ranking}} </p>
+            <br>
+            {% if request.user.is_authenticated %}
+            <a href="{% url 'portfolio:cadeira_edita' Cadeira.id %}" class="botao">Editar</a>
+            <a href="{% url 'portfolio:cadeira_apaga' Cadeira.id %}" class="botao">Apagar</a>
+            {% endif %}
         </div>
     </div>
 {% endfor %}
 </div>
+
+{% if request.user.is_authenticated %}
+<div class="outro">
+        <a href="{% url 'portfolio:cadeira_novo' %}" class="botao">+ Nova Cadeira</a>
+</div>
+{% endif %}
 
 <h1 class="base">Interesses e hobbies</h1>
 
@@ -94,6 +105,11 @@
             <p>Nos meus dias de puro lazer gosto também de fazer passeios de jeep visitando sítios novos e com alguma aventura pelo caminho.</p>
         </div>
     </div>
+</div>
+
+<div class="botoes">
+    <a href="{% url 'portfolio:login' %}" class="botao">Login</a>
+    <a href="{% url 'portfolio:logout' %}" class="botao">Logout</a>
 </div>
 
 {% endblock %}

@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 
 from .models import Blog, Apti, Formacao, Cadeira, Projeto, Tecnologia, Noticia, Laboratorio, Quizz, PadroesUsados, \
     TecnologiaUsada, Comenatario, Trabalho_Final
-from .forms import BlogForm, QuizzForm, TecnologiaForm, ComenatarioForm, Trabalho_FinalForm
+from .forms import BlogForm, QuizzForm, TecnologiaForm, ComenatarioForm, Trabalho_FinalForm, CadeiraForm
 from .forms import AptiForm
 from .forms import FormacaoForm
 
@@ -224,3 +224,46 @@ def apaga_trabalhofinal_view(request, trabalhofinal_id):
     Trabalho_Final.objects.get(id=trabalhofinal_id).delete()
     return HttpResponseRedirect(reverse('portfolio:Projetos'))
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@login_required
+def novo_cadeira_view(request):
+    if request.method == 'POST':
+        form = CadeiraForm(request.POST,request.FILES)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('portfolio:sobre'))
+    form = CadeiraForm()
+    context = {'form': form}
+    return render(request, 'portfolio/novacad.html', context)
+
+@login_required
+def edita_cadeira_view(request, cadeira_id):
+    post = Cadeira.objects.get(id=cadeira_id)
+    if request.method == 'POST':
+        form = CadeiraForm(request.POST,request.FILES,instance=post)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('portfolio:sobre'))
+    else:
+        form = CadeiraForm(instance=post)
+    context = {'form': form, 'cadeira_id': cadeira_id}
+    return render(request, 'portfolio/editarcad.html', context)
+
+
+def apaga_cadeira_view(request, cadeira_id):
+    Cadeira.objects.get(id=cadeira_id).delete()
+    return HttpResponseRedirect(reverse('portfolio:sobre'))
