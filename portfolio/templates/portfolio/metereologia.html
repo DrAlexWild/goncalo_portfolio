@@ -102,7 +102,7 @@
 <body onload="renderTime()"></body>
      <script>
         document.addEventListener('DOMContentLoaded', function () {
-        fetch('http://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1010500.json')
+        fetch('https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1010500.json')
         .then(response => response.json())
         .then(data => {
              let pais = data.country;
