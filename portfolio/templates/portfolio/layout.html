@@ -17,35 +17,9 @@
     <title>Portfolio - Gonçalo Pedroso</title>
 
 </head>
-<body>
-<header>
-    <nav>
-        <a href="{% url 'portfolio:Home' %}">Portfolio</a>
-    </nav>
-    <nav>
-      <a href="{% url 'portfolio:Home' %}">Home</a>
-      <a href="{% url 'portfolio:Sobre Mim' %}">Sobre mim</a>
-      <a href="{% url 'portfolio:Projetos' %}">Projetos</a>
-        <a href="{% url 'portfolio:Web' %}">Web</a>
-        <a href="{% url 'portfolio:Blog' %}">Blog</a>
-        <a href="{% url 'portfolio:Contacto' %}">Contacto</a>
-        <a href="{% url 'portfolio:metereologia' %}">Metereologia</a>
-        <a href="{% url 'portfolio:login' %}">Log in</a>
-    </nav>
-</header>
-	<main>
 
-        {% block main %}
-
-
-        {% endblock %}
-
-    </main>
-    <footer>
-        <p>Gonçalo Pedroso</p>
-        <img src="{% static 'portfolio/images/ulht.jpg' %}">
-        <script type="text/javascript">
-        function horas() {
+<script>
+        function renderTime(){
         var myDate = new Date();
         var day = myDate.getDate();
         var month = myDate.getMonth();
@@ -82,10 +56,33 @@
         setTimeout("renderTime()", 1000)
       }
       renderTime();
-        </script>
-        <body onload="horas()">
-        <div id="relogio"></div>
-        </body>
+</script>
+
+<body onload="renderTime()">
+<header>
+    <nav>
+        <a href="{% url 'portfolio:Home' %}">Portfolio</a>
+    </nav>
+    <nav>
+      <a href="{% url 'portfolio:Home' %}">Home</a>
+      <a href="{% url 'portfolio:Sobre Mim' %}">Sobre mim</a>
+      <a href="{% url 'portfolio:Projetos' %}">Projetos</a>
+        <a href="{% url 'portfolio:Web' %}">Web</a>
+        <a href="{% url 'portfolio:Blog' %}">Blog</a>
+        <a href="{% url 'portfolio:Contacto' %}">Contacto</a>
+        <a href="{% url 'portfolio:metereologia' %}">Metereologia</a>
+        <a href="{% url 'portfolio:login' %}">Log in</a>
+    </nav>
+</header>
+<main>
+    {% block main %}
+
+    {% endblock %}
+</main>
+    <footer>
+        <p>Gonçalo Pedroso</p>
+        <img src="{% static 'portfolio/images/ulht.jpg' %}">
+        <p id="relogio"></p>
     </footer>
 </body>
 </html>

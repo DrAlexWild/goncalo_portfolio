@@ -1,72 +1,5 @@
-
-{% load static %}
-    <link rel="stylesheet" href="{% static 'portfolio/css/estilos.css' %}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cuprum:wght@600&display=swap" rel="stylesheet">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<header>
-    <nav>
-        <a href="{% url 'portfolio:Home' %}">Portfolio</a>
-    </nav>
-    <nav>
-      <a href="{% url 'portfolio:Home' %}">Home</a>
-      <a href="{% url 'portfolio:Sobre Mim' %}">Sobre mim</a>
-      <a href="{% url 'portfolio:Projetos' %}">Projetos</a>
-        <a href="{% url 'portfolio:Web' %}">Web</a>
-        <a href="{% url 'portfolio:Blog' %}">Blog</a>
-        <a href="{% url 'portfolio:Contacto' %}">Contacto</a>
-        <a href="{% url 'portfolio:metereologia' %}">Metereologia</a>
-        <a href="{% url 'portfolio:login' %}">Log in</a>
-    </nav>
-</header>
-
-
-     <div class="article10"></div>
-     <div class="textoM1">
-        <h2>TEMPERATURA MÍNIMA</h2>
-        <br>
-        <p><span id="minima"></span></p>
-    </div>
-     <div class="article11"></div>
-     <div class="textoM1">
-        <h2>TEMPERATURA MÁXIMA</h2>
-        <br>
-        <p><span id="maxima"></span></p>
-    </div>
-     <div class="article12"></div>
-     <div class="textoM1">
-        <h2>DIREÇÃO DO VENTO</h2>
-        <br>
-        <p><span id="intensidade"></span></p>
-    </div>
-
-
-     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-        fetch('https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1090821.json')
-        .then(response => response.json())
-        .then(data => {
-             const tMin = data.data[1].tMin;
-             document.getElementById('minima').innerHTML = `A previsão meteorológica da temperatura mínima diária nos proximos 5 dias é de ${tMin}º graus`;
-             const tMax = data.data[2].tMax;
-             document.getElementById('maxima').innerHTML = `A previsão meteorológica da temperatura máxima diária nos proximos 5 dias é de ${tMax}º graus`;
-             const predWindDir = data.data[3].predWindDir;
-             document.getElementById('intensidade').innerHTML = `A previsão meteorológica para o rumo predominante do vento é para ${predWindDir}`;
-        });
-        })
-    </script>
-
-    <footer>
-        <p>Gonçalo Pedroso</p>
-        <img src="{% static 'portfolio/images/ulht.jpg' %}">
-        <script type="text/javascript">
-        function horas() {
+<script>
+        function renderTime(){
         var myDate = new Date();
         var day = myDate.getDate();
         var month = myDate.getMonth();
@@ -103,8 +36,145 @@
         setTimeout("renderTime()", 1000)
       }
       renderTime();
-        </script>
-        <body onload="horas()">
-        <div id="relogio"></div>
-        </body>
+</script>
+
+{% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/estilos.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cuprum:wght@600&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<header>
+    <nav>
+        <a href="{% url 'portfolio:Home' %}">Portfolio</a>
+    </nav>
+    <nav>
+      <a href="{% url 'portfolio:Home' %}">Home</a>
+      <a href="{% url 'portfolio:Sobre Mim' %}">Sobre mim</a>
+      <a href="{% url 'portfolio:Projetos' %}">Projetos</a>
+        <a href="{% url 'portfolio:Web' %}">Web</a>
+        <a href="{% url 'portfolio:Blog' %}">Blog</a>
+        <a href="{% url 'portfolio:Contacto' %}">Contacto</a>
+        <a href="{% url 'portfolio:metereologia' %}">Metereologia</a>
+        <a href="{% url 'portfolio:login' %}">Log in</a>
+    </nav>
+</header>
+
+     <div class="article10"></div>
+     <div class="textoM1">
+        <h2>TEMPERATURA MÍNIMA</h2>
+        <br>
+         <p>País: <span id="pais"></span></p>
+         <p>Segunda: <span id="segunda"></span></p>
+         <p>Terça: <span id="terca"></span></p>
+         <p>Quarta: <span id="quarta"></span></p>
+         <p>Quinta: <span id="quinta"></span></p>
+         <p>Sexta: <span id="sexta"></span></p>
+    </div>
+     <div class="article11"></div>
+     <div class="textoM1">
+        <h2>TEMPERATURA MÁXIMA</h2>
+        <br>
+         <p>País: <span id="pais2"></span></p>
+         <p>Segunda: <span id="segunda2"></span></p>
+         <p>Terça: <span id="terca2"></span></p>
+         <p>Quarta: <span id="quarta2"></span></p>
+         <p>Quinta: <span id="quinta2"></span></p>
+         <p>Sexta: <span id="sexta2"></span></p>
+    </div>
+     <div class="article12"></div>
+     <div class="textoM1">
+        <h2>DIREÇÃO DO VENTO</h2>
+        <br>
+        <p>Segunda: <span id="intensidade"></span></p>
+         <p>Terça: <span id="intensidade2"></span></p>
+         <p>Quarta: <span id="intensidade3"></span></p>
+         <p>Quinta: <span id="intensidade4"></span></p>
+         <p>Sexta: <span id="intensidade5"></span></p>
+
+    </div>
+
+<body onload="renderTime()"></body>
+     <script>
+        document.addEventListener('DOMContentLoaded', function () {
+        fetch('http://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1010500.json')
+        .then(response => response.json())
+        .then(data => {
+             let pais = data.country;
+             let textMin = "";
+             let textMax = "";
+             let textMin2 = "";
+             let textMax2 = "";
+             let textMin3 = "";
+             let textMax3 = "";
+             let textMin4 = "";
+             let textMax4 = "";
+             let textMin5 = "";
+             let textMax5 = "";
+
+             let tMin = data.data[0].tMin;
+             let tMax = data.data[0].tMax;
+             textMin += tMin + "º graus";
+             textMax += tMax + "º graus";
+             document.getElementById('segunda').innerHTML = textMin;
+             document.getElementById('segunda2').innerHTML = textMax;
+
+             tMin = data.data[1].tMin;
+             tMax = data.data[1].tMax;
+             textMin2 +=  tMin + "º graus";
+             textMax2 += tMax + "º graus";
+             document.getElementById('terca').innerHTML = textMin2;
+             document.getElementById('terca2').innerHTML = textMax2;
+
+             tMin = data.data[2].tMin;
+             tMax = data.data[2].tMax;
+             textMin3 += tMin + "º graus";
+             textMax3 += tMax + "º graus";
+             document.getElementById('quarta').innerHTML = textMin3;
+             document.getElementById('quarta2').innerHTML = textMax3;
+
+             tMin = data.data[3].tMin;
+             tMax = data.data[3].tMax;
+             textMin4 += tMin + "º graus";
+             textMax4 += tMax + "º graus";
+             document.getElementById('quinta').innerHTML = textMin4;
+             document.getElementById('quinta2').innerHTML = textMax4;
+
+             tMin = data.data[4].tMin;
+             tMax = data.data[4].tMax;
+             textMin5 += tMin + "º graus";
+             textMax5 += tMax + "º graus";
+             document.getElementById('sexta').innerHTML = textMin5;
+             document.getElementById('sexta2').innerHTML = textMax5;
+
+             document.getElementById('pais').innerHTML = `${pais}`;
+             document.getElementById('pais2').innerHTML = `${pais}`;
+
+             const predWindDir = data.data[0].predWindDir;
+             document.getElementById('intensidade').innerHTML = `A previsão meteorológica para o rumo predominante do vento é para ${predWindDir}`;
+
+             const predWindDir2 = data.data[1].predWindDir;
+             document.getElementById('intensidade2').innerHTML = `A previsão meteorológica para o rumo predominante do vento é para ${predWindDir2}`;
+
+             const predWindDir3 = data.data[2].predWindDir;
+             document.getElementById('intensidade3').innerHTML = `A previsão meteorológica para o rumo predominante do vento é para ${predWindDir3}`;
+
+             const predWindDir4 = data.data[3].predWindDir;
+             document.getElementById('intensidade4').innerHTML = `A previsão meteorológica para o rumo predominante do vento é para ${predWindDir4}`;
+
+             const predWindDir5 = data.data[4].predWindDir;
+             document.getElementById('intensidade5').innerHTML = `A previsão meteorológica para o rumo predominante do vento é para ${predWindDir5}`;
+        });
+        })
+    </script>
+
+    <footer>
+        <p>Gonçalo Pedroso</p>
+        <img src="{% static 'portfolio/images/ulht.jpg' %}">
+        <p id="relogio"></p>
     </footer>
