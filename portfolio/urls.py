@@ -8,6 +8,7 @@ urlpatterns = [
     path("Projetos", views.Projetos_view, name="Projetos"),
     path("Contacto", views.Contacto_view, name="Contacto"),
     path("metereologia", views.metereologia_view, name="metereologia"),
+    path("covidnews", views.covidnews_view, name="covidnews"),
     path("Web", views.Web_view, name="Web"),
     path("Blog", views.Blog_view, name="Blog"),
     path("nova", views.nova_view, name="nova"),
@@ -27,8 +28,6 @@ urlpatterns = [
     path('cadeira_novo/', views.novo_cadeira_view, name='cadeira_novo'),
     path('cadeira_edita/<int:cadeira_id>', views.edita_cadeira_view, name='cadeira_edita'),
     path('cadeira_apaga/<int:cadeira_id>', views.apaga_cadeira_view, name='cadeira_apaga'),
-
-
     path('projeto_novo/', views.novo_projeto_view, name='projeto_novo'),
     path('projeto_edita/<int:projeto_id>', views.edita_projeto_view, name='projeto_edita'),
     path('projeto_apaga/<int:projeto_id>', views.apaga_projeto_view, name='projeto_apaga'),

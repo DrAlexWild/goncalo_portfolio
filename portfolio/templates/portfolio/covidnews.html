@@ -1,0 +1,153 @@
+<script>
+        function renderTime(){
+        var myDate = new Date();
+        var day = myDate.getDate();
+        var month = myDate.getMonth();
+        var monthArray = ['Janeiro','Fevereiro','Marco','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro']
+        var year = myDate.getYear();
+        if (year < 1000) {
+          year += 1900;
+        }
+        var currentTime = new Date();
+        var h = currentTime.getHours();
+        var m = currentTime.getMinutes();
+        var s = currentTime.getSeconds();
+
+        if (h == 24) {
+          h = 0;
+        } else if (h > 12) {
+          h = h - 0;
+        }
+
+        if (h < 10) {
+          h = "0" + h;
+        }
+        if (m < 10) {
+          m = "0" + m;
+        }
+        if (s < 10) {
+          s = "0" + s;
+        }
+
+        var clock = document.getElementById("relogio");
+        clock.textContent = "" + day + " " + monthArray[month] + " " + year + " | " + h + ":" + m + ":" + s;
+        clock.innerText = "" + day + " " + monthArray[month] + " " + year + " | " + h + ":" + m + ":" + s;
+
+        setTimeout("renderTime()", 1000)
+      }
+      renderTime();
+</script>
+
+{% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/estilos.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cuprum:wght@600&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<header>
+    <nav>
+        <a href="{% url 'portfolio:Home' %}">Portfolio</a>
+    </nav>
+    <nav>
+      <a href="{% url 'portfolio:Home' %}">Home</a>
+      <a href="{% url 'portfolio:Sobre Mim' %}">Sobre mim</a>
+      <a href="{% url 'portfolio:Projetos' %}">Projetos</a>
+        <a href="{% url 'portfolio:Web' %}">Web</a>
+        <a href="{% url 'portfolio:Blog' %}">Blog</a>
+        <a href="{% url 'portfolio:Contacto' %}">Contacto</a>
+        <a href="{% url 'portfolio:metereologia' %}">Metereologia</a>
+        <a href="{% url 'portfolio:covidnews' %}">Covidnews</a>
+        <a href="{% url 'portfolio:login' %}">Log in</a>
+    </nav>
+</header>
+
+<script>
+const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': '189fac111fmsh6f96488bf271df1p1da94ejsn3e5115f2e148',
+		'X-RapidAPI-Host': 'portugal-covid-19-news.p.rapidapi.com'
+	}
+};
+    document.addEventListener('DOMContentLoaded', function () {
+        fetch('https://portugal-covid-19-news.p.rapidapi.com/news', options)
+        .then(response => response.json())
+        .then(data => {
+             let title = data[0].title;
+             let url = data[0].url;
+             let source = data[0].source;
+             document.querySelector('#title').append(title);
+             document.querySelector('#url').append(url);
+             document.querySelector('#source').append(source);
+
+
+             let title2 = data[3].title;
+             let url2 = data[3].url;
+             let source2 = data[3].source;
+             document.querySelector('#title2').append(title2);
+             document.querySelector('#url2').append(url2);
+             document.querySelector('#source2').append(source2);
+
+             let title3 = data[5].title;
+             let url3 = data[5].url;
+             let source3 = data[5].source;
+             document.querySelector('#title3').append(title3);
+             document.querySelector('#url3').append(url3);
+             document.querySelector('#source3').append(source3);
+
+        });
+        })
+</script>
+
+<body onload="renderTime()"></body>
+<div class="space">
+    <div class="posts">
+        <div>
+            <img src="{% static 'portfolio/images/covid2.PNG' %}">
+            <br>
+            <br>
+            <p><span id="title"></span></p>
+            <br>
+            <p>Url: <span id="url"></span></p>
+            <br>
+            <p>Fonte: <span id="source"></span></p>
+        </div>
+    </div>
+
+        <div class="posts">
+        <div>
+            <img src="{% static 'portfolio/images/covid3.jpg' %}">
+            <br>
+            <br>
+            <p><span id="title2"></span></p>
+            <br>
+            <p>Url: <span id="url2"></span></p>
+            <br>
+            <p>Fonte: <span id="source2"></span></p>
+        </div>
+    </div>
+
+            <div class="posts">
+        <div>
+            <img src="{% static 'portfolio/images/covid1.jpg' %}">
+            <br>
+            <br>
+            <p><span id="title3"></span></p>
+            <br>
+            <p>Url: <span id="url3"></span></p>
+            <br>
+            <p>Fonte: <span id="source3"></span></p>
+        </div>
+    </div>
+</div>
+
+    <footer>
+        <p>Gonçalo Pedroso</p>
+        <img src="{% static 'portfolio/images/ulht.jpg' %}">
+        <p id="relogio"></p>
+    </footer>

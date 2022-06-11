@@ -39,6 +39,9 @@ def Contacto_view(request):
 def metereologia_view(request):
     return render(request, 'portfolio/metereologia.html')
 
+def covidnews_view(request):
+    return render(request, 'portfolio/covidnews.html')
+
 def Web_view(request):
     grafico_quiz(Quizz.objects.all())
 
@@ -252,26 +255,6 @@ def edita_cadeira_view(request, cadeira_id):
 def apaga_cadeira_view(request, cadeira_id):
     Cadeira.objects.get(id=cadeira_id).delete()
     return HttpResponseRedirect(reverse('portfolio:sobre'))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 @login_required
 def novo_projeto_view(request):
