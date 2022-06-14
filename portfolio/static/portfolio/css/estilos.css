@@ -548,6 +548,11 @@ padding: 30px;
 text-align: center;
 }
 
+.video{
+text-align: center;
+padding:10px;
+}
+
 .posts a{
 color:black;
 }
