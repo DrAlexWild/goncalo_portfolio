@@ -3,6 +3,12 @@
 
 {% block main %}
 {% load static %}
+  <div class="subnav">
+      <a href="#Licenciatura">Licenciatura</a>
+      <a href="#Educacao">Educação</a>
+      <a href="#Aptidoes">Aptidões</a>
+      <a href="#hobbies">Interesses e hobbies</a>
+  </div>
 <div class="article5"></div>
 <div class="textoM1">
         <h2>QUEM SOU EU - INTERESSES E HOBBIES</h2>
@@ -11,13 +17,13 @@
     </div>
 <div class="article6"></div>
 
-<h1 class="base">Aptidões e Competências Pessoais</h1>
+<h1 class="base" id="Aptidoes">Aptidões e Competências Pessoais</h1>
 <section>
 {% for Apti in Aptis %}
         <p>{{ Apti.titulo}} - {{ Apti.descricao}}<BR>Projeto/Disciplina : {{ Apti.projetos}}/{{ Apti.disciplinas}}</p>
 {% endfor %}
 </section>
-<h1 class="base">Educação</h1>
+<h1 class="base" id="Educacao">Educação</h1>
 <div class="article3"></div>
 <h1 class="base">Formação / Certificados</h1>
 
@@ -40,7 +46,7 @@
 
 <h1 class="base">Cadeiras do curso</h1>
 
-<div class="space">
+<div class="space" id="Licenciatura">
 {% for Cadeira in Cadeiras %}
     <div class="Cad">
         <div>
@@ -78,7 +84,7 @@
 </div>
 {% endif %}
 
-<h1 class="base">Interesses e hobbies</h1>
+<h1 class="base" id="hobbies">Interesses e hobbies</h1>
 
 <div class="space">
     <div class="Cad">

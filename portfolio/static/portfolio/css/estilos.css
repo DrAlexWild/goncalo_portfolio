@@ -35,6 +35,26 @@ nav a {
   color: lightgray;
 }
 
+.subnav {
+  height: 5vh;
+  background: gray;
+  color: white;
+  display:flex;
+  align-items: center;
+  font-family: 'Cuprum', sans-serif;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+  padding:10px;
+}
+
+.subnav a{
+padding:10px;
+color: white;
+text-decoration: none;
+}
+
 
 .hero {
   background-color:#e7e7e7;

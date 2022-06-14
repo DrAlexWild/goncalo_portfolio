@@ -3,10 +3,14 @@
 
 {% block main %}
 {% load static %}
+  <div class="subnav">
+      <a href="#realizados">Realizados por mim</a>
+      <a href="#TFCS">TFCS</a>
+  </div>
 <div class="article4"></div>
 <h1 class="base1">Projetos Realizados</h1>
 
-<div class="space">
+<div class="space" id="realizados">
 {% for Projeto in Projetos %}
     <div class="Cad">
         <div>
@@ -37,7 +41,7 @@
 </div>
 {% endif %}
 
-<h1 class="base2">Trabalhos Finais DEISI</h1>
+<h1 class="base2" id="TFCS">Trabalhos Finais DEISI</h1>
 
 <div class="textoM1">
         <h2>TFCS DO DEISI</h2>
