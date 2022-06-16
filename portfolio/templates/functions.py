@@ -37,7 +37,7 @@ def grafico_quiz(objects):
     users = list(data.keys())
     values = list(data.values())
 
-    plt.bar(users,values,color = 'green', width = 0.5)
+    plt.bar(users,values,color = 'green', width = 0.6)
 
     plt.xlabel("Jogadores")
     plt.ylabel("Pontuação")
