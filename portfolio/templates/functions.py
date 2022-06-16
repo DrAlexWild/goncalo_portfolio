@@ -11,7 +11,7 @@ def PontuacaoQuizz(quiz):
         pontuacao += 1
 
     #Quantas tecnologias são faladas ? 13
-    if(quiz.questao_2 == 9):
+    if(quiz.questao_2 == 22):
         pontuacao += 1
 
     #Laravel surgio em que ano ? 2011
