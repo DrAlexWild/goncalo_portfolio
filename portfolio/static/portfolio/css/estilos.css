@@ -38,7 +38,7 @@ nav a {
 .subnav {
   height: 5vh;
   background: gray;
-  color: white;
+  color: black;
   display:flex;
   align-items: center;
   font-family: 'Cuprum', sans-serif;
@@ -50,9 +50,14 @@ nav a {
 }
 
 .subnav a{
-padding:10px;
-color: white;
+padding:15px;
+color: black;
 text-decoration: none;
+}
+
+.subnav a:hover {
+  background-color: #eee;
+  color: black;
 }
 
 
