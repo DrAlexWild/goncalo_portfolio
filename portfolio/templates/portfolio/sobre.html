@@ -40,13 +40,14 @@
                 <li>Período : {{ Formacao.periodo}} Anos</li>
                </ul>
             </div>
-            <br>
+            </div>
+        </div>
+<div>
             {% if request.user.is_authenticated %}
             <a href="{% url 'portfolio:formacao_edita' Formacao.id %}" class="botao">Editar</a>
             <a href="{% url 'portfolio:formacao_apaga' Formacao.id %}" class="botao">Apagar</a>
             {% endif %}
-            </div>
-        </div>
+</div>
 {% endfor %}
 
 {% if request.user.is_authenticated %}
