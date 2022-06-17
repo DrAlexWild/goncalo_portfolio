@@ -34,9 +34,11 @@ urlpatterns = [
     path('formacao_novo/', views.novo_formacao_view, name='formacao_novo'),
     path('formacao_edita/<int:formacao_id>', views.edita_formacao_view,name='formacao_edita'),
     path('formacao_apaga/<int:formacao_id>', views.apaga_formacao_view,name='formacao_apaga'),
-
     path('noticia_novo/', views.novo_noticia_view, name='noticia_novo'),
     path('noticia_edita/<int:noticia_id>', views.edita_noticia_view,name='noticia_edita'),
     path('noticia_apaga/<int:noticia_id>', views.apaga_noticia_view,name='noticia_apaga'),
+    path('apti_novo/', views.novo_Apti_view, name='apti_novo'),
+    path('apti_edita/<int:apti_id>', views.edita_Apti_view,name='apti_edita'),
+    path('apti_apaga/<int:apti_id>', views.apaga_Apti_view,name='apti_apaga'),
 
 ]

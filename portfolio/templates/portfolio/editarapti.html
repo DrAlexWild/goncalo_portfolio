@@ -1,0 +1,11 @@
+{% extends 'portfolio/layout.html' %}
+{% load static %}
+{% block main %}
+<h3>Aptidão</h3>
+    <form action="{% url 'portfolio:apti_edita' apti_id %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Gravar" class="btn btn-primary" >
+        <a href="{% url 'portfolio:apti_apaga' apti_id %}" role="button" class="btn btn-danger">Apagar</a>
+    </form>
+{% endblock %}

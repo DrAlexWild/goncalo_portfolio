@@ -317,19 +317,6 @@ def apaga_formacao_view(request, formacao_id):
     return HttpResponseRedirect(reverse('portfolio:sobre'))
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 @login_required
 def novo_noticia_view(request):
     if request.method == 'POST':
@@ -358,3 +345,70 @@ def edita_noticia_view(request, noticia_id):
 def apaga_noticia_view(request, noticia_id):
     Noticia.objects.get(id=noticia_id).delete()
     return HttpResponseRedirect(reverse('portfolio:Web'))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@login_required
+def novo_Apti_view(request):
+    if request.method == 'POST':
+        form = AptiForm(request.POST,request.FILES)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('portfolio:sobre'))
+    form = AptiForm()
+    context = {'form': form}
+    return render(request, 'portfolio/novaapti.html', context)
+
+@login_required
+def edita_Apti_view(request, apti_id):
+    post = Apti.objects.get(id=apti_id)
+    if request.method == 'POST':
+        form = AptiForm(request.POST,request.FILES,instance=post)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('portfolio:sobre'))
+    else:
+        form = AptiForm(instance=post)
+    context = {'form': form, 'apti_id': apti_id}
+    return render(request, 'portfolio/editarapti.html', context)
+
+
+def apaga_Apti_view(request, apti_id):
+    Apti.objects.get(id=apti_id).delete()
+    return HttpResponseRedirect(reverse('portfolio:sobre'))
