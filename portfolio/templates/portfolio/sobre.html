@@ -17,16 +17,28 @@
     </div>
 <div class="article6"></div>
 
+
+
 <h1 class="base" id="Aptidoes">Aptidões e Competências Pessoais</h1>
-<section>
+
+<div class="space">
 {% for Apti in Aptis %}
-        <p>{{ Apti.titulo}} - {{ Apti.descricao}}<BR>Projeto/Disciplina : {{ Apti.projetos}}/{{ Apti.disciplinas}}</p>
+    <div class="Cad">
+        <div>
+            <p>{{ Apti.titulo}}</p>
+            <p>{{ Apti.descricao}}</p>
+            <p>Projetos que ajudaram a desenvolver: {{ Apti.projetos}}</p>
+            <p>Disciplinas que ensinaram: {{ Apti.disciplinas}}</p>
+        </div>
+    </div>
 {% endfor %}
-</section>
+</div>
+
+
+
 <h1 class="base" id="Educacao">Educação</h1>
 <div class="article3"></div>
 <h1 class="base">Formação / Certificados</h1>
-
 
 {% for Formacao in Formacaos %}
 <div class="eu">
