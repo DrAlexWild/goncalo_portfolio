@@ -32,4 +32,9 @@ urlpatterns = [
     path('projeto_edita/<int:projeto_id>', views.edita_projeto_view, name='projeto_edita'),
     path('projeto_apaga/<int:projeto_id>', views.apaga_projeto_view, name='projeto_apaga'),
 
+
+    path('formacao_novo/', views.novo_formacao_view, name='formacao_novo'),
+    path('formacao_edita/<int:formacao_id>', views.edita_formacao_view,name='formacao_edita'),
+    path('formacao_apaga/<int:formacao_id>', views.apaga_formacao_view,name='formacao_apaga'),
+
 ]

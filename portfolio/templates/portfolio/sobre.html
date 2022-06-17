@@ -11,7 +11,7 @@
   </div>
 <div class="article5"></div>
 <div class="textoM1">
-        <h2>QUEM SOU EU - INTERESSES E HOBBIES</h2>
+        <h2>QUEM SOU EU</h2>
         <br>
         <p>O meu nome é Gonçalo Pedroso, tenho 19 anos e de momento sou estudante na Licenciatura em Engenharia Informática, fora disso tenho vários interesses como o mundo do desporto, carros e claro as tecnologias.<br><br> No meu tempo livre tenho como hobbies preferidos jogar/ver futebol,aventurar-me em tudo o que involve um pouco de adrenalina, ir ao ginásio e conviver com amigos, namorada e familia. </p>
     </div>
@@ -40,9 +40,20 @@
                 <li>Período : {{ Formacao.periodo}} Anos</li>
                </ul>
             </div>
+            <br>
+            {% if request.user.is_authenticated %}
+            <a href="{% url 'portfolio:formacao_edita' Formacao.id %}" class="botao">Editar</a>
+            <a href="{% url 'portfolio:formacao_apaga' Formacao.id %}" class="botao">Apagar</a>
+            {% endif %}
             </div>
         </div>
 {% endfor %}
+
+{% if request.user.is_authenticated %}
+<div class="outro">
+        <a href="{% url 'portfolio:formacao_novo' %}" class="botao">+ Nova Formação</a>
+</div>
+{% endif %}
 
 <h1 class="base">Cadeiras do curso</h1>
 

@@ -284,3 +284,35 @@ def edita_projeto_view(request, projeto_id):
 def apaga_projeto_view(request, projeto_id):
     Projeto.objects.get(id=projeto_id).delete()
     return HttpResponseRedirect(reverse('portfolio:Projetos'))
+
+
+
+
+@login_required
+def novo_formacao_view(request):
+    if request.method == 'POST':
+        form = FormacaoForm(request.POST,request.FILES)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('portfolio:sobre'))
+    form = FormacaoForm()
+    context = {'form': form}
+    return render(request, 'portfolio/novaforma.html', context)
+
+@login_required
+def edita_formacao_view(request, formacao_id):
+    post = Formacao.objects.get(id=formacao_id)
+    if request.method == 'POST':
+        form = FormacaoForm(request.POST,request.FILES,instance=post)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('portfolio:sobre'))
+    else:
+        form = FormacaoForm(instance=post)
+    context = {'form': form, 'formacao_id': formacao_id}
+    return render(request, 'portfolio/editarforma.html', context)
+
+
+def apaga_formacao_view(request, formacao_id):
+    Formacao.objects.get(id=formacao_id).delete()
+    return HttpResponseRedirect(reverse('portfolio:sobre'))
