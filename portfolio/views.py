@@ -6,7 +6,8 @@ from django.contrib.auth.decorators import login_required
 
 from .models import Blog, Apti, Formacao, Cadeira, Projeto, Tecnologia, Noticia, Laboratorio, Quizz, PadroesUsados, \
     TecnologiaUsada, Comenatario, Trabalho_Final
-from .forms import BlogForm, QuizzForm, TecnologiaForm, ComenatarioForm, Trabalho_FinalForm, CadeiraForm, ProjetoForm
+from .forms import BlogForm, QuizzForm, TecnologiaForm, ComenatarioForm, Trabalho_FinalForm, CadeiraForm, ProjetoForm, \
+    NoticiaForm
 from .forms import AptiForm
 from .forms import FormacaoForm
 
@@ -286,8 +287,6 @@ def apaga_projeto_view(request, projeto_id):
     return HttpResponseRedirect(reverse('portfolio:Projetos'))
 
 
-
-
 @login_required
 def novo_formacao_view(request):
     if request.method == 'POST':
@@ -316,3 +315,46 @@ def edita_formacao_view(request, formacao_id):
 def apaga_formacao_view(request, formacao_id):
     Formacao.objects.get(id=formacao_id).delete()
     return HttpResponseRedirect(reverse('portfolio:sobre'))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@login_required
+def novo_noticia_view(request):
+    if request.method == 'POST':
+        form = NoticiaForm(request.POST,request.FILES)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('portfolio:Web'))
+    form = NoticiaForm()
+    context = {'form': form}
+    return render(request, 'portfolio/novanot.html', context)
+
+@login_required
+def edita_noticia_view(request, noticia_id):
+    post = Noticia.objects.get(id=noticia_id)
+    if request.method == 'POST':
+        form = NoticiaForm(request.POST,request.FILES,instance=post)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('portfolio:Web'))
+    else:
+        form = NoticiaForm(instance=post)
+    context = {'form': form, 'noticia_id': noticia_id}
+    return render(request, 'portfolio/editarnot.html', context)
+
+
+def apaga_noticia_view(request, noticia_id):
+    Noticia.objects.get(id=noticia_id).delete()
+    return HttpResponseRedirect(reverse('portfolio:Web'))
