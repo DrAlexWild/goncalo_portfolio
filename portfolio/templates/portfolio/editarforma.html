@@ -5,7 +5,6 @@
     <form action="{% url 'portfolio:formacao_edita' formacao_id %}" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form }}
-        <a href="{% url 'portfolio:sobre' %}" role="button" class="btn btn-warning">Cancelar</a>
         <input type="submit" value="Gravar" class="btn btn-primary" >
         <a href="{% url 'portfolio:formacao_apaga' formacao_id %}" role="button" class="btn btn-danger">Apagar</a>
     </form>
