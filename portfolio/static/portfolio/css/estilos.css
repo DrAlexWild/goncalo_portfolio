@@ -39,6 +39,10 @@ nav a {
 color: black;
 }
 
+.formabut {
+text-align: center;
+}
+
 .subnav {
   height: 5vh;
   background: gray;
