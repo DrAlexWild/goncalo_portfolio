@@ -35,6 +35,10 @@ nav a {
   color: lightgray;
 }
 
+.mapa{
+color: black;
+}
+
 .subnav {
   height: 5vh;
   background: gray;
