@@ -70,8 +70,8 @@
             <a href="{{ Noticia.link}}">Link da Notícia</a>
             <br>
             {% if request.user.is_authenticated %}
-            <a href="{% url 'portfolio:noticia_editar' Noticia.id %}" class="botao">Editar</a>
-            <a href="{% url 'portfolio:noticia_apagar' Noticia.id %}" class="botao">Apagar</a>
+            <a href="{% url 'portfolio:noticia_edita' Noticia.id %}" class="botao">Editar</a>
+            <a href="{% url 'portfolio:noticia_apaga' Noticia.id %}" class="botao">Apagar</a>
             {% endif %}
         </div>
     </div>
@@ -79,7 +79,7 @@
 </div>
 {% if request.user.is_authenticated %}
 <div class="outro">
-    <a href="{% url 'portfolio:noticia_nova' %}" class="botao">+ Nova Noticia</a>
+    <a href="{% url 'portfolio:noticia_novo' %}" class="botao">+ Nova Noticia</a>
 </div>
 {% endif %}
 
